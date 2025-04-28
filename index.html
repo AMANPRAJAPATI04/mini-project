@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash-to-Online Exchange | Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Login Container */
+        .login-container {
+            max-width: 500px;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .login-header img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .login-header h2 {
+            font-weight: 700;
+        }
+        
+        /* Transaction Images Section */
+        .transaction-images {
+            margin: 40px 0;
+            padding: 20px 0;
+            background-color: #f1f5f9;
+            border-radius: 10px;
+        }
+        
+        .transaction-img-container {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .transaction-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .transaction-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .img-caption {
+            margin-top: 10px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        /* Form Styles */
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        .btn-login {
+            background-color: var(--secondary-color);
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-login:hover {
+            background-color: #2980b9;
+        }
+        
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .divider {
+            position: relative;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+            z-index: -1;
+        }
+        
+        .divider span {
+            background-color: white;
+            padding: 0 15px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background-color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .register-link a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .app-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .app-badge {
+            height: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-links h5 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .login-container {
+                margin: 15% auto;
+                padding: 20px;
+            }
+            
+            .login-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .transaction-img-container {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<button
+<body><a href="file:///C:/Users/hp/Desktop/web%20Development/project1.html/html121.html#">Login</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/40x40?text=C2O" alt="Logo">
+                Cash2Online
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Transaction Images Section -->
+        <div class="transaction-images">
+            <div class="row">
+                <div class="col-md-6 transaction-img-container">
+                    <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                         alt="Cash to Digital" class="transaction-img">
+                    <div class="img-caption">Convert Cash to Digital Money</div>
+                </div>
+                <div class="col-md-6 transaction-img-container">
+                    <img src="https://images.unsplash.com/photo-1613243555978-636c48dc653c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                         alt="Digital to Cash" class="transaction-img">
+                    <div class="img-caption">Convert Digital Money to Cash</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Container -->
+        <div class="login-container">
+            <div class="login-header">
+                <img src="https://via.placeholder.com/80x80?text=C2O" alt="Cash-to-Online Logo">
+                <h2>Cash-to-Online Exchange</h2>
+                <p class="text-muted">Secure cash and digital money exchange platform</p>
+            </div>
+            
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email or Phone</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter your email or phone number" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-login">Login</button>
+                <body><a href="file:///C:/Users/hp/Desktop/web%20Development/project1.html/html121.html#">Login</a>
+                
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-paypal"></i>
+                    </button>
+                </div>
+                
+                <div class="register-link">
+                    Don't have an account? <a href="#">Register here</a>
+                </div>
+            </form>
+            
+            <div class="app-badges">
+                <img src="https://via.placeholder.com/120x40?text=App+Store" alt="App Store" class="app-badge">
+                <img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Play Store" class="app-badge">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">About Us</h2>
+                    <p>Cash2Online is a revolutionary platform that bridges the gap between physical cash and digital payments. Our mission is to provide a secure, convenient way for people to convert cash to digital money and vice versa.</p>
+                    <p>Founded in 2023, we've helped thousands of users access financial services without the need for traditional banking infrastructure. Our platform uses advanced security measures to ensure all transactions are safe and reliable.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                         alt="About Us" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-exchange-alt fa-3x mb-3 text-primary"></i>
+                            <h4 class="card-title">Cash to Digital</h4>
+                            <p class="card-text">Convert your physical cash to digital money in your preferred wallet (UPI, Paytm, etc.) instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-money-bill-wave fa-3x mb-3 text-primary"></i>
+                            <h4 class="card-title">Digital to Cash</h4>
+                            <p class="card-text">Withdraw cash from your digital wallet when you need physical money.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
+                            <h4 class="card-title">Secure Transactions</h4>
+                            <p class="card-text">Verified users and secure payment gateways ensure your money is always safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="step-number mb-3">1</div>
+                            <h4 class="card-title">Register & Verify</h4>
+                            <p class="card-text">Create your account and complete identity verification for security.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="step-number mb-3">2</div>
+                            <h4 class="card-title">Find Nearby Users</h4>
+                            <p class="card-text">Our system matches you with verified users nearby for transactions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="step-number mb-3">3</div>
+                            <h4 class="card-title">Complete Transaction</h4>
+                            <p class="card-text">Exchange cash for digital money or vice versa with secure confirmation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4"></h4>
+                            <p><i class="fas fa-map-marker-alt me-2"></i>K.R. Mangalam University</p>
+                            <p><i class="fas fa-phone me-2"></i> 99xxxxxx15</p>
+                            <p><i class="fas fa-envelope me-2"></i>ap9027714@gmail.com</p>
+                            <hr>
+                            <h5 class="mb-3">Work Hours</h5>
+                            <p>24X7 availabe</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Cash2Online</h5>
+                    <p>Bridging the gap between cash and digital payments with secure, convenient solutions for everyone.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#">Cash to Digital</a></li>
+                        <li><a href="#">Digital to Cash</a></li>
+                        <li><a href="#">Merchant Solutions</a></li>
+                        <li><a href="#">Bulk Transactions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Cash2Online. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
